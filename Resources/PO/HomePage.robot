@@ -41,19 +41,20 @@ Validate Login Status
     [Arguments]    &{creds}
     sleep    5s
     ${loginVisible}    run keyword and return status    element should be visible    ${loggedUser}
-    run keyword if      ${loginVisible} == True     sucessLogin   # comparing values with quotes
-    ...    ELSE                                     failedLogin   &{creds}
+    run keyword if      ${loginVisible} == True     Sucessful Login   # comparing values with quotes
+    ...    ELSE                                     Failed Login      &{creds}
 
-sucessLogin
+Sucessful Login
     [Arguments]
     ${userName}    get text     ${loggedUser}
     should contain    ${userName}   Avikdatta
     mouse over    ${loggedUser}
     click element    ${logoutLink}
     wait until page contains element    ${loginLink}
+    
 
 
-failedLogin
+Failed Login
     [Arguments]    &{creds}
     ${errorTxt}    get text             ${loginError}
     should be equal      ${errorTxt}    ${creds.errorMsg}
