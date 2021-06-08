@@ -11,7 +11,7 @@ Test Teardown    Common.Begin Teardown
 #Validate The Gold Commodity Price
 #    [Documentation]    Check the gold price over different period
 
-Validate The Currencies With Top Excahnge Rate
+Validate The Currencies With Top Exchange Rate
     [Documentation]    Store currencies with top 3 exchange rates
     [Tags]  currency exchange
     CurrencyExchangeKeywords.Find And Store The Currency Exchange Rates in Excel

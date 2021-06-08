@@ -6,3 +6,5 @@ Documentation    Repo for the variables used
 &{invalidEmail} =    email=audi3avik@gmail.com     paswrd=AudiR8V10$    errorMsg=Invalid User Id/EmailID or Password. Please try again.
 &{invalidPwd} =      email=audi4avik@gmail.com     paswrd=AudiR7V10$    errorMsg=Invalid User Id/EmailID or Password. Please try again.
 &{incorrectEmail} =  email=audi4avikemail.com      paswrd=AudiR8V10$    errorMsg=Invalid User Id/EmailID or Password. Please try again.
+
+${excelPath} =    C:/Users/ibmadmin/PycharmProjects/SDET Python/TestData.xlsx
