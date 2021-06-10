@@ -4,14 +4,13 @@ Library    SeleniumLibrary
 Library    ExcelLibrary
 Library    Collections
 Library    String
-
-Resource    ../../Input/InputData.robot
+Library    OperatingSystem
 
 *** Variables ***
 ${currencyConverter} =   css=h1.cc
 ${scrollElem} =          //a[text()='Currency Spot Rates']
 ${currencyHead} =        //div[@class='curdata']//table//td/strong
-${conversionHead} =     //div[@class='curdata']//table//td[2][@class='bgylw']
+${conversionHead} =      //div[@class='curdata']//table//td[2][@class='bgylw']
 @{currList} =
 @{valueList} =
 &{currDict} =
@@ -27,19 +26,19 @@ Retrieve The Currency Exchange Rate
     FOR    ${count}   IN RANGE    2    ${currencyCount}
            ${currencyName}    get text   (${currencyHead})[${count}]
            ${currencyName}    get substring  ${currencyName}   0   -2
+           append to list     ${currList}       ${currencyName}
            ${currencyValue}   get text   (${conversionHead})[${count}]
-           set to dictionary   ${currDict}   ${currencyName}    ${currencyValue}
+           append to list     ${valueList}   ${currencyValue}
+           #set to dictionary  ${currDict}    ${currencyName}   ${currencyValue}
     END
+    [Return]    ${currList}    ${valueList}
 
-
-Sort The Exchange Rates In Descending Order
-
-
-
+# Sort The Exchange Rates In Descending Order
 
 Write The Rates To Excel Sheet
-    # ExcelLibrary - Open, Read, Write & Close
-    open excel document    ${excelPath}    useTempDir=True
-    write excel column     5    ${idList}    row_offset=1    sheet_name=PUT-Operation
-    save excel document    ${excelPath}
-    close current excel document
+    [Arguments]    ${excelFile}
+    open excel document    ${excelFile}   useTempDir=True
+    write excel column     1    ${currList}  row_offset=1    sheet_name=Currency
+    write excel column     2    ${valueList}    row_offset=1    sheet_name=Currency
+    save excel document    ${excelFile}
+    close all excel documents
