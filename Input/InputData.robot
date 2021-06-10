@@ -9,4 +9,4 @@ ${baseUrl} =  https://www.moneycontrol.com/
 &{invalidPwd} =      email=audi4avik@gmail.com     paswrd=AudiR7V10$    errorMsg=Invalid User Id/EmailID or Password. Please try again.
 &{incorrectEmail} =  email=audi4avikemail.com      paswrd=AudiR8V10$    errorMsg=Invalid User Id/EmailID or Password. Please try again.
 
-${excelFile} =    C:/Users/ibmadmin/PycharmProjects/SDET Python/MoneyControl/Output/TestResult.xlsx
+${excelFile} =    ./Output/TestResult.xlsx
