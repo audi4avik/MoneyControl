@@ -4,9 +4,9 @@ Library    SeleniumLibrary
 Library    ExcelLibrary
 Library    Collections
 Library    String
-Library    OperatingSystem
 
 *** Variables ***
+${breadcrumbLink} =      div.PB5 gD_10
 ${currencyConverter} =   css=h1.cc
 ${scrollElem} =          //a[text()='Currency Spot Rates']
 ${currencyHead} =        //div[@class='curdata']//table//td/strong
@@ -16,6 +16,10 @@ ${conversionHead} =      //div[@class='curdata']//table//td[2][@class='bgylw']
 &{currDict} =
 
 *** Keywords ***
+Validate The Currency Exchane Page Loaded
+    wait until element is visible    ${breadcrumbLink}
+    element should contain    ${breadcrumbLink}    Currencies   ignore_case=True
+
 Retrieve The Currency Exchange Rate
     wait until page contains element    ${currencyConverter}
     scroll element into view    ${scrollElem}

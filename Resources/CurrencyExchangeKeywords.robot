@@ -12,10 +12,12 @@ Find And Store The Currency Exchange Rates in Excel
 
 #Low level keywords for currency exchange test cases
 Go To Currency Exchange Page
+    HomePage.Validate Home Page Loaded
     HomePage.Go To Currency Section
 
 List The Currencies In Excel Sheet
     [Arguments]    ${excelFile}
+    CurrencyPage.Validate The Currency Exchane Page Loaded
     CurrencyPage.Retrieve The Currency Exchange Rate
     #CurrencyPage.Sort The Exchange Rates In Descending Order
     CurrencyPage.Write The Rates To Excel Sheet     ${excelFile}

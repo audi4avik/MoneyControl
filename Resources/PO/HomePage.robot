@@ -3,7 +3,6 @@ Documentation   elements for home page
 Library    SeleniumLibrary
 
 *** Variables ***
-${baseUrl} =       https://www.moneycontrol.com/
 ${loginLink} =     //a[@title='Hello, Login']
 ${modalLogin} =    //a[text()='Log-in']
 ${loginModal} =    //div[@class='modal-dialog']
@@ -15,14 +14,18 @@ ${loggedUser} =    //ul[@class='log_list']//span[@class='usr_nm']
 ${logoutLink} =    //li[@class='alp login_user_logout']//a[@title='Logout']
 ${loginError} =    //form[@id='login_form']//div[@id='error_api']
 ${modalClose} =    //div[@class='modal-content']//button[@class='close']
+${commodityLink} =    //ul[@class='clearfix main_nav']//a[@title='Commodities']
 ${commoditySection} =    //div[@class='comoCont clearfix MT20']
 ${currencyPageLink} =    //div[@class='bxcom']//a[@title='Currencies']
 
 
-
 *** Keywords ***
-Go To Login Section
+Validate Home Page Loaded
+    ${homePageUrl}   get location
+    ${homePageUrl}   should be equal    https://www.moneycontrol.com/
     wait until page contains element    ${loginLink}
+
+Go To Login Section
     click element    ${loginLink}
     wait until element is visible   ${modalLogin}
     click element    ${modalLogin}
@@ -53,13 +56,16 @@ Sucessful Login
     wait until page contains element    ${loginLink}
     
 
-
 Failed Login
     [Arguments]    &{creds}
     ${errorTxt}    get text             ${loginError}
     should be equal      ${errorTxt}    ${creds.errorMsg}
     reload page
 
+
+Click On Commodity Link From Navigation
+    wait until page contains element    ${commodityLink}
+    click element    ${commodityLink}
 
 Go To Currency Section
     wait until page contains element    ${loginLink}
