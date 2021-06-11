@@ -21,8 +21,8 @@ ${currencyPageLink} =    //div[@class='bxcom']//a[@title='Currencies']
 
 *** Keywords ***
 Validate Home Page Loaded
-    ${homePageUrl}   get location
-    ${homePageUrl}   should be equal    https://www.moneycontrol.com/
+    ${homePageTitle}   get title
+#    ${homePageUrl}   should be equal    https://www.moneycontrol.com/
     wait until page contains element    ${loginLink}
 
 Go To Login Section

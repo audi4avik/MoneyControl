@@ -3,12 +3,14 @@ Documentation    This is the object repository for gold rate page
 Library    SeleniumLibrary
 Library    ExcelLibrary
 Library    Collections
+Library    String
 
 *** Variables ***
 ${pageHeading} =    //h1[text()='Gold Rate Today']
-${dateTab} =    //a[contains(@id,'commodity_tab')]
-${innerTab} =   //div[contains(@id,'commodity_innertab')]
-${goldPriceTxt} =    //span[contains(@class,'_30')]
+${dateTab} =        //a[contains(@id,'commodity_tab')]
+${innerTab} =       //div[contains(@id,'commodity_innertab')]
+${goldPriceTxt} =   //span[contains(@class,'_30')]
+${priceChangeTxt} =    //div[contains(@id,'commodity_innertab')]//div[contains(@class,'PR20')]/strong
 @{rowData} =
 
 *** Keywords ***
@@ -26,15 +28,16 @@ Write The Price Into Excel
            click element    (${dateTab})[${index}]
            ${tabTxt}       get text    (${dateTab})[${index}]
            ${goldPrice}    get text    (${innerTab})[${index}]${goldPriceTxt}
+           ${changeVal}    get text    (${priceChangeTxt})[${index}]
+           ${pre}	${post} =	Split String	${changeVal}	::	1
 
-           ${changeval}
            append to list    @{rowData}     ${tabTxt}
 
            # write list data to excel
-           open excel document    ${excelFile}   useTempDir=True
-           write excel row     ${index}    ${currList}  row_offset=1    sheet_name=Gold Price
-           save excel document    ${excelFile}
-           close all excel documents
+#           open excel document    ${excelFile}   useTempDir=True
+#           write excel row     ${index}    ${currList}  row_offset=1    sheet_name=Gold Price
+#           save excel document    ${excelFile}
+#           close all excel documents
     END
 
 

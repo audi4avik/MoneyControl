@@ -8,9 +8,9 @@ Resource    ../Resources/CommodityKeywords.robot
 Test Setup       Common.Begin Test     ${browser}    ${baseUrl}
 Test Teardown    Common.Begin Teardown
 
-#TODO - Add gold price change per day in a new row
-#TODO - Add keyword For Assertion (title /url) on every page
+#TODO - Add workflow logic for skip landing page
 #TODO - Add OS validation for excel files present in the dir
+#TODO - Add gold price change per day in a new row
 
 *** Test Cases ***
 Validate The Gold Commodity Price
