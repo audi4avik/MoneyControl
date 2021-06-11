@@ -3,6 +3,7 @@ Documentation   elements for home page
 Library    SeleniumLibrary
 
 *** Variables ***
+${skipToHomeLink} =  //span[@class='textlik']//a[text()='moneycontrol.com']
 ${loginLink} =     //a[@title='Hello, Login']
 ${modalLogin} =    //a[text()='Log-in']
 ${loginModal} =    //div[@class='modal-dialog']
@@ -20,10 +21,18 @@ ${currencyPageLink} =    //div[@class='bxcom']//a[@title='Currencies']
 
 
 *** Keywords ***
+Validate The First Page Loaded
+    ${status}    run keyword and return status    element should be visible    ${skipToHomeLink}
+    run keyword if    ${status} == True    Click On Continue To Home Page
+    ...       ELSE                        Validate Home Page Loaded
+
+Click On Continue To Home Page
+    click element    ${skipToHomeLink}
+
 Validate Home Page Loaded
-    ${homePageTitle}   get title
-#    ${homePageUrl}   should be equal    https://www.moneycontrol.com/
     wait until page contains element    ${loginLink}
+    ${homePageTitle}   get title
+    ${homePageUrl}   should be equal    https://www.moneycontrol.com/
 
 Go To Login Section
     click element    ${loginLink}

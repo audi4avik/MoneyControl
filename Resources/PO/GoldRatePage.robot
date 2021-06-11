@@ -6,7 +6,7 @@ Library    Collections
 Library    String
 
 *** Variables ***
-${pageHeading} =    //h1[text()='Gold Rate Today']
+${pageHeading} =    //h1[@class='FL']
 ${dateTab} =        //a[contains(@id,'commodity_tab')]
 ${innerTab} =       //div[contains(@id,'commodity_innertab')]
 ${goldPriceTxt} =   //span[contains(@class,'_30')]
@@ -15,6 +15,7 @@ ${priceChangeTxt} =    //div[contains(@id,'commodity_innertab')]//div[contains(@
 
 *** Keywords ***
 Validate The Gold Rate Page Loaded
+    execute javascript    window.scrollTo(document.body.scrollHeight, 0)
     wait until page contains element    ${pageHeading}
     element text should be    ${pageHeading}      Gold Rate Today
 
@@ -29,9 +30,9 @@ Write The Price Into Excel
            ${tabTxt}       get text    (${dateTab})[${index}]
            ${goldPrice}    get text    (${innerTab})[${index}]${goldPriceTxt}
            ${changeVal}    get text    (${priceChangeTxt})[${index}]
-           ${pre}	${post} =	Split String	${changeVal}	::	1
+           ${pre}	${post} =	Split String	${changeVal}
 
-           append to list    @{rowData}     ${tabTxt}
+           append to list    ${rowData}     ${tabTxt}    ${goldPrice}    ${pre}	    ${post}
 
            # write list data to excel
 #           open excel document    ${excelFile}   useTempDir=True

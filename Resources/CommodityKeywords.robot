@@ -13,7 +13,7 @@ Navigate To Commodities Section And Capture The Gold Price
     Capture Gold Rate Details In Excel Sheet    ${excelFile}
 
 Go To Commodities Section
-    HomePage.Validate Home Page Loaded
+    HomePage.Validate The First Page Loaded
     HomePage.Click On Commodity Link From Navigation
 
 Move to The Gold Price Details Section

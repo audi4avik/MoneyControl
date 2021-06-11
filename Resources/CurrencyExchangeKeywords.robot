@@ -12,7 +12,7 @@ Find And Store The Currency Exchange Rates in Excel
 
 #Low level keywords for currency exchange test cases
 Go To Currency Exchange Page
-    HomePage.Validate Home Page Loaded
+    HomePage.Validate The First Page Loaded
     HomePage.Go To Currency Section
 
 List The Currencies In Excel Sheet
