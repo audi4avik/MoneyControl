@@ -31,8 +31,8 @@ Click On Continue To Home Page
 
 Validate Home Page Loaded
     wait until page contains element    ${loginLink}
-    ${homePageTitle}   get title
-    ${homePageUrl}   should be equal    https://www.moneycontrol.com/
+    ${homePageUrl}   get location
+    should be equal    ${homePageUrl}   https://www.moneycontrol.com/
 
 Go To Login Section
     click element    ${loginLink}

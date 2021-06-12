@@ -23,6 +23,6 @@ Move to The Gold Price Details Section
 Capture Gold Rate Details In Excel Sheet
     [Arguments]    ${excelFile}
     GoldRatePage.Validate The Gold Rate Page Loaded
-    GoldRatePage.Write The Price Into Excel     ${excelFile}
+    GoldRatePage.Retrieve And Write The Gold Price Into Excel     ${excelFile}
 
 
