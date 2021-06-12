@@ -9,7 +9,6 @@ Test Setup       Common.Begin Test     ${browser}    ${baseUrl}
 Test Teardown    Common.Begin Teardown
 
 #TODO - Add OS validation for excel files present in the dir
-#TODO - Add gold price change per day in a new row
 
 *** Test Cases ***
 Validate The Gold Commodity Price
