@@ -17,7 +17,7 @@ Go To Currency Exchange Page
 
 List The Currencies In Excel Sheet
     [Arguments]    ${excelFile}
-    CurrencyPage.Validate The Currency Exchane Page Loaded
+    CurrencyPage.Validate The Currency Exchange Page Loaded
     CurrencyPage.Retrieve The Currency Exchange Rate
     #CurrencyPage.Sort The Exchange Rates In Descending Order
     CurrencyPage.Write The Rates To Excel Sheet     ${excelFile}

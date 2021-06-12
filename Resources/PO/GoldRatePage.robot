@@ -6,7 +6,7 @@ Library    Collections
 Library    String
 
 *** Variables ***
-${pageHeading} =    //h1[@class='FL']
+${goldPageHeadingTxt} =    //h1[@class='FL']
 ${dateTab} =        //a[contains(@id,'commodity_tab')]
 ${innerTab} =       //div[contains(@id,'commodity_innertab')]
 ${goldPriceTxt} =   //span[contains(@class,'_30')]
@@ -16,8 +16,8 @@ ${priceChangeTxt} =    //div[contains(@id,'commodity_innertab')]//div[contains(@
 *** Keywords ***
 Validate The Gold Rate Page Loaded
     execute javascript    window.scrollTo(document.body.scrollHeight, 0)
-    wait until page contains element    ${pageHeading}
-    element text should be    ${pageHeading}      Gold Rate Today
+    wait until page contains element    ${goldPageHeadingTxt}
+    element text should be    ${goldPageHeadingTxt}      Gold Rate Today
 
 Retrieve And Write The Gold Price Into Excel
     [Arguments]    ${excelFile}

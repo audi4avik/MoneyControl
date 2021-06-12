@@ -6,7 +6,7 @@ Library    Collections
 Library    String
 
 *** Variables ***
-${goldPageTxt} =         div.PB5 gD_10
+${currencyPageHeadingTxt} =    //div[@class='PB5 gD_10']//a[@title='CURRENCIES']
 ${currencyConverter} =   css=h1.cc
 ${scrollElem} =          //a[text()='Currency Spot Rates']
 ${currencyHead} =        //div[@class='curdata']//table//td/strong
@@ -16,9 +16,9 @@ ${conversionHead} =      //div[@class='curdata']//table//td[2][@class='bgylw']
 &{currDict} =
 
 *** Keywords ***
-Validate The Currency Exchane Page Loaded
-    wait until element is visible    ${goldPageTxt}
-    element should contain    ${goldPageTxt}    Currencies   ignore_case=True
+Validate The Currency Exchange Page Loaded
+    wait until element is visible    ${currencyPageHeadingTxt}
+    element should contain    ${currencyPageHeadingTxt}    Currencies   ignore_case=True
 
 Retrieve The Currency Exchange Rate
     wait until page contains element    ${currencyConverter}

@@ -11,7 +11,7 @@ Test Teardown    Common.Begin Teardown
 *** Test Cases ***
 Test Login Scenarios
     [Documentation]    This is templated login scenarios
-    [Tags]  login test
+    [Tags]  login
     [Template]  Validate Login Tests
     &{validLogin}
     &{invalidEmail}
