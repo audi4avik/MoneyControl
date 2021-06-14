@@ -12,7 +12,7 @@ Validate Login Tests
 
 # Low level keyword
 Navigate To Login Page
-    HomePage.Validate The First Page Loaded
+    HomePage.Validate The Landing Page Loaded
     HomePage.Go To Login Section
 
 Attempt Login And Validate

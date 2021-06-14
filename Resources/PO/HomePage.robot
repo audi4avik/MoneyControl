@@ -18,13 +18,14 @@ ${modalClose} =    //div[@class='modal-content']//button[@class='close']
 ${commodityLink} =    //ul[@class='clearfix main_nav']//a[@title='Commodities']
 ${commoditySection} =    //div[@class='comoCont clearfix MT20']
 ${currencyPageLink} =    //div[@class='bxcom']//a[@title='Currencies']
+${personalFinanceLink} =    //li[@cid='8' and contains(@class,'menu_l1')]/a[@title='Personal Finance']
 
 
 *** Keywords ***
-Validate The First Page Loaded
+Validate The Landing Page Loaded
     ${status}    run keyword and return status    element should be visible    ${skipToHomeLink}
     run keyword if    ${status} == True    Click On Continue To Home Page
-    ...       ELSE                        Validate Home Page Loaded
+    ...       ELSE                         Validate Home Page Loaded
 
 Click On Continue To Home Page
     click element    ${skipToHomeLink}
@@ -77,6 +78,8 @@ Click On Commodity Link From Navigation
     click element    ${commodityLink}
 
 Go To Currency Section
-    wait until page contains element    ${loginLink}
     scroll element into view    ${commoditySection}
     click element   ${currencyPageLink}
+
+Click On Personal Finance From Navigation
+    click element    ${personalFinanceLink}
