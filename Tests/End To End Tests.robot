@@ -9,7 +9,7 @@ Resource    ../Resources/CalculatorToolsKeywords.robot
 Test Setup       Common.Begin Test     ${browser}    ${baseUrl}
 Test Teardown    Common.Begin Teardown
 
-#TODO - Add OS validation for excel files present in the dir
+# TODO - Add OS validation for excel files present in the dir
 
 *** Test Cases ***
 Validate The Gold Commodity Price
@@ -26,6 +26,6 @@ Validate The Currencies With Top Exchange Rate
 Validate The Gratuity Calculator Functionality
     [Documentation]    Calculate Gratuity
     [Tags]    gratuity
-    CalculatorToolsKeywords.Find The Tool And Calculate The Gratutiy
+    CalculatorToolsKeywords.Find The Tool And Calculate The Gratutiy    &{gratuityInput}
 
 

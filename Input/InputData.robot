@@ -10,3 +10,5 @@ ${baseUrl} =  https://www.moneycontrol.com/
 &{incorrectEmail} =  email=audi4avikemail.com      paswrd=AudiR8V10$    errorMsg=Invalid User Id/EmailID or Password. Please try again.
 
 ${excelFile} =    ./Output/TestResult.xlsx
+
+&{gratuityInput} =    salary=20000    year=7    month=7
